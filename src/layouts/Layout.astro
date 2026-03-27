@@ -1,0 +1,309 @@
+---
+const { title } = Astro.props;
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} — Prime Lattice LLC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono:wght@300;400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="theme-color" content="#080d1a" />
+</head>
+<body>
+
+  <!-- Shared SVG defs — cube symbol used in nav + footer -->
+  <svg width="0" height="0" style="position:absolute;overflow:hidden;" aria-hidden="true">
+    <defs>
+      <radialGradient id="cgG" cx="35%" cy="25%" r="65%">
+        <stop offset="0%" stop-color="#f5e07a"/>
+        <stop offset="100%" stop-color="#6b4e12"/>
+      </radialGradient>
+      <radialGradient id="cgW" cx="35%" cy="25%" r="65%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#9a9282"/>
+      </radialGradient>
+      <radialGradient id="cgD" cx="35%" cy="25%" r="65%">
+        <stop offset="0%" stop-color="#d4b45a"/>
+        <stop offset="100%" stop-color="#3a2c0a"/>
+      </radialGradient>
+      <symbol id="cube-mark" viewBox="0 0 120 110">
+        <g stroke="#c9a84c" stroke-linecap="round" fill="none">
+          <g stroke-width="2" opacity="0.2">
+            <line x1="22" y1="73" x2="60" y2="52"/>
+            <line x1="98" y1="73" x2="60" y2="52"/>
+            <line x1="60" y1="94" x2="60" y2="52"/>
+          </g>
+          <g stroke-width="2.8" opacity="0.9">
+            <line x1="60" y1="10" x2="98" y2="31"/>
+            <line x1="60" y1="10" x2="22" y2="31"/>
+            <line x1="98" y1="31" x2="60" y2="52"/>
+            <line x1="22" y1="31" x2="60" y2="52"/>
+          </g>
+          <g stroke-width="2.8" opacity="0.75">
+            <line x1="98" y1="31" x2="98" y2="73"/>
+            <line x1="98" y1="73" x2="60" y2="94"/>
+          </g>
+          <g stroke-width="2.8" opacity="0.55">
+            <line x1="22" y1="31" x2="22" y2="73"/>
+            <line x1="22" y1="73" x2="60" y2="94"/>
+          </g>
+          <g stroke-width="1.4" opacity="0.22">
+            <line x1="60" y1="10" x2="60" y2="52"/>
+            <line x1="98" y1="31" x2="22" y2="31"/>
+            <line x1="98" y1="31" x2="60" y2="94"/>
+            <line x1="98" y1="73" x2="60" y2="52"/>
+            <line x1="22" y1="31" x2="60" y2="94"/>
+            <line x1="22" y1="73" x2="60" y2="52"/>
+          </g>
+        </g>
+        <circle cx="60" cy="52" r="5"   fill="url(#cgD)" opacity="0.55"/>
+        <circle cx="79" cy="20" r="4"   fill="url(#cgW)" opacity="0.75"/>
+        <circle cx="41" cy="20" r="4"   fill="url(#cgW)" opacity="0.75"/>
+        <circle cx="79" cy="42" r="4"   fill="url(#cgW)" opacity="0.7"/>
+        <circle cx="41" cy="42" r="4"   fill="url(#cgD)" opacity="0.6"/>
+        <circle cx="98" cy="52" r="4"   fill="url(#cgW)" opacity="0.7"/>
+        <circle cx="22" cy="52" r="4"   fill="url(#cgD)" opacity="0.45"/>
+        <circle cx="79" cy="84" r="4"   fill="url(#cgW)" opacity="0.65"/>
+        <circle cx="41" cy="84" r="4"   fill="url(#cgD)" opacity="0.45"/>
+        <circle cx="60" cy="10" r="7"   fill="url(#cgG)"/>
+        <circle cx="98" cy="31" r="7"   fill="url(#cgG)"/>
+        <circle cx="98" cy="73" r="7"   fill="url(#cgG)"/>
+        <circle cx="60" cy="94" r="7"   fill="url(#cgG)"/>
+        <circle cx="22" cy="73" r="6"   fill="url(#cgG)" opacity="0.7"/>
+        <circle cx="22" cy="31" r="6"   fill="url(#cgG)" opacity="0.7"/>
+        <circle cx="60" cy="94" r="11"  fill="none" stroke="#f5e07a" stroke-width="1.2" opacity="0.35"/>
+        <circle cx="60" cy="52" r="6.5" fill="url(#cgG)"/>
+        <circle cx="60" cy="52" r="10"  fill="none" stroke="#f5e07a" stroke-width="1.2" opacity="0.3"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <svg width="34" height="34" viewBox="0 0 120 110"><use href="#cube-mark"/></svg>
+      <span>PRIME <span class="gold">LATTICE</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#values">About</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE CONTENT GOES HERE -->
+  <slot />
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <svg width="30" height="30" viewBox="0 0 120 110" style="opacity:0.85"><use href="#cube-mark"/></svg>
+      <div class="footer-logo">PRIME <span>LATTICE</span> LLC</div>
+    </div>
+    <p class="footer-tagline">Honest Curiosity · Good Company · No Destinations</p>
+    <p class="footer-copy">© 2026 Prime Lattice LLC. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --navy:       #080d1a;
+    --navy-mid:   #0d1628;
+    --navy-light: #132040;
+    --gold:       #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim:   rgba(201,168,76,0.18);
+    --white:      #f2efe8;
+    --muted:      #7a8499;
+    --border:     rgba(201,168,76,0.22);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    background: rgba(8,13,26,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
+    color: var(--white);
+  }
+  .nav-logo .gold {
+    color: var(--gold);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    font-size: 0.85rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    border: 1px solid var(--gold);
+    color: var(--gold) !important;
+    padding: 0.5rem 1.2rem;
+    transition: background 0.3s, color 0.3s !important;
+  }
+  .nav-cta:hover {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-tagline {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .footer-copy {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+
+  /* SHARED UTILITIES */
+  section { position: relative; z-index: 1; }
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+    color: var(--white);
+  }
+  .section-title strong { font-weight: 600; color: var(--gold-light); }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.9rem 2.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    padding: 0.9rem 2.2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(242,239,232,0.25);
+    cursor: pointer;
+    transition: border-color 0.3s, color 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    footer { padding: 2rem; }
+  }
+  @media (max-width: 560px) {
+    .nav-links { display: none; }
+  }
+</style>
